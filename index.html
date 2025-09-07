@@ -19,39 +19,27 @@
 <nav>
     <div class="navbar bg-[#15803d] shadow-sm">
   <div class="navbar-start">
-    <div class="dropdown">
+    <div class="dropdown ">
       <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
       </div>
       <ul
         tabindex="0"
-        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li><a>Item 1</a></li>
-        <li>
-          <a>Parent</a>
-          <ul class="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </li>
-        <li><a>Item 3</a></li>
+        class="menu menu-sm dropdown-content  bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        <li><a class="hover:underline">About</a></li>
+          <li> <a class="hover:underline">Gallery</a>
+      </li>
+        <li><a class="hover:underline">Plant a Tree</a></li>
       </ul>
     </div>
     <a class="btn btn-ghost text-xl text-white">Green Earth</a>
   </div>
   <div class="navbar-center hidden lg:flex text-white">
     <ul class="menu menu-horizontal px-1">
-      <li><a>About</a></li>
-      <li>
-        <details>
-          <summary>Gallery</summary>
-          <ul class="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </details>
+      <li><a class="hover:underline">About</a></li>
+      <li> <a class="hover:underline">Gallery</a>
       </li>
-      <li><a>Plant a Tree</a></li>
+      <li><a class="hover:underline">Plant a Tree</a></li>
     </ul>
   </div>
   <div class="navbar-end ">
@@ -63,28 +51,53 @@
 <!-- header -->
 <section class="bg-[#cff0dc] w-full flex">
     <div class="">
-      <img src="assets/hero-leaf1.png" alt="">
+      <img class="hidden md:block flex-1" src="assets/hero-leaf1.png" alt="">
     </div>
-        <div class="p-15 text-center">
-      <h1 class="font-bold text-3xl text-[#1f2937] p-3">Plant a Tree, Grow a Future</h1>
+        <div class="p-15 text-center flex-1">
+      <h1 class="font-bold text-3xl text-[#1f2937] p-3 mb-4">Plant a Tree, Grow a Future</h1>
       <p class="text-[#1f2937] pb-5">Join our mission to plant 1 million trees and make the Earth greener for future
 generations.</p>
       <button class="btn bg-[#facc15] text-[#15803d] rounded-4xl border-none shadow-none">Get Involved</button>
     </div>
         <div class="">
-      <img src="assets/hero-leaf2.png" alt="">
+      <img class="hidden md:block flex-1" src="assets/hero-leaf2.png" alt="">
     </div>
 </section>
 
+<!-- category section -->
+
+<section class="bg-[#f0fdf4]">
+  <div>
+  <h2 class="text-[#1f2937] font-bold text-xl md:text-2xl text-center p-8">Choose Your Trees</h2>
+  <div class="flex col-span-12 justify-center gap-5">
+    <div class="col-span-2"><h2 class="text-[#1f2937] font-semibold text-sm md:text-2xl text-center p-2">Categories</h2>
+    <p class="text-[#1f2937]">All Trees</p>
+    <p class="text-[#1f2937]">Fruit Trees</p>
+       <p class="text-[#1f2937]">Flowering Trees</p>
+    <p class="text-[#1f2937]">Shade Trees</p>
+       <p class="text-[#1f2937]">Medicinal Trees</p>
+    <p class="text-[#1f2937]">Timber Trees</p>
+       <p class="text-[#1f2937]">Evergreen Trees</p>
+    <p class="text-[#1f2937]">Ornamental Plants</p>
+       <p class="text-[#1f2937]">Bamboo</p>
+       <p class="text-[#1f2937]">Climbers</p>
+       <p class="text-[#1f2937]">Aquatic Plants</p>
+    </div>
+    <div class="col-span-8"></div>
+    <div class="col-span-2 bg-white rounded-md"><h2 class="text-[#1f2937] font-bold text-xl md:text-xs text-left p-2">Your Cart</h2></div>
+  </div>
+</div>
+</section>
+
 <!-- description section -->
-<section class="bg-[#f0fdf4] ">
-   <div class="w-9/12 mx-auto p-25">
-     <h2 class="text-[#1f2937] font-bold text-2xl text-center">About the Campaign</h2>
-     <div class="flex w-[1090px] h-[530px] py-6">
-        <img class="w-[530px] h-[530px]" src="assets/about.png" alt="">
-    <div class="div text-[#1f2937] px-5 py-30">        
+<section class="bg-[#f0fdf4] pb-5 md:pb-15">
+   <div class="w-9/12 mx-auto ">
+     <h2 class="text-[#1f2937] font-bold text-xl md:text-2xl text-center p-8">About the Campaign</h2>
+     <div class="flex flex-col md:flex-row items-center gap-2 md:gap-8">
+        <img class=" md:w-1/2" src="assets/about.png" alt="">
+    <div class=" text-[#1f2937]  md:w-1/2 ">        
         <p class="p-5">Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since our start, we’ve planted over 500,000 trees worldwide. By joining our campaign, you help restore forests, create habitats for wildlife, and combat global warming. </p> 
-    <div class="px-11 ">
+    <div class="px-5">
           <li>Restoration of natural habitats</li>
 <li>Improvement of air quality</li>
 <li>Support for local communities</li>
@@ -93,27 +106,54 @@ generations.</p>
    </div>
 </section>
 <!-- impact section -->
-<section class="bg-[#cff0dc]">
+<section class="bg-[#cff0dc] py-12">
     <div class="">
-        <h2 class="text-[#1f2937] font-bold text-2xl text-center py-10">Our Impact</h2>
-  <div class="flex gap-10 mx-auto px-100 pb-15">
-          <div class="bg-white rounded-xl w-[500px] h-[100px] text-center ">
-            <h2 class="text-[#15803d] text-2xl font-semibold p-2 pt-5">500K+</h2>
-            <p class="text-xs text-[#1f2937]  p-2 pb-5">Trees Planted</p>
+        <h2 class="text-[#1f2937] font-bold text-2xl text-center py-5 md:py-10">Our Impact</h2>
+  <div class="flex flex-col md:flex-row mx-auto gap-3 items-center md:justify-around">
+          <div class="bg-white rounded-xl w-9/12 md:w-[450px] p-5  text-center shadow-lg">
+            <h2 class="text-[#15803d] text-2xl font-semibold ">500K+</h2>
+            <p class="text-xs text-[#1f2937] ">Trees Planted</p>
         </div>
-                <div class="bg-white rounded-xl w-[500px] text-center">
-            <h2 class="text-[#15803d] text-2xl font-semibold p-2">120+</h2>
-            <p class="text-xs text-[#1f2937] p-2">Communities Involved</p>
+                <div class="bg-white rounded-xl w-9/12 md:w-[450px] p-5 text-center shadow-lg">
+            <h2 class="text-[#15803d] text-2xl font-semibold ">120+</h2>
+            <p class="text-xs text-[#1f2937] ">Communities Involved</p>
         </div>
-                <div class="bg-white rounded-xl w-[500px] text-center">
-            <h2 class="text-[#15803d] text-2xl font-semibold p-2">30+</h2>
-            <p class="text-xs text-[#1f2937] p-2">Countries Reached</p>
+                <div class="bg-white rounded-xl w-9/12 md:w-[450px] p-5 text-center shadow-lg">
+            <h2 class="text-[#15803d] text-2xl font-semibold ">30+</h2>
+            <p class="text-xs text-[#1f2937] ">Countries Reached</p>
         </div>
   </div>
     </div>
-
 </section>
 
+<!-- form section -->
+ <section class="bg-[#166534]">
+  <div class="pb-20">
+        <h2 class="font-bold text-white text-center text-xl p-8">Plant a Tree Today</h2>
+  <div class="bg-[#15803d] md:w-5/18 mx-auto px-13 py-8 rounded-sm">
+   <div class="pb-2">
+      <input type="text" placeholder="Your Name" class="input" />
+  </div>
+     <div class="pb-2">
+      <input type="text" placeholder="Your Email Address" class="input" />
+  </div>
+   <div class="pb-4">
+      <input type="text" class="input pb-2" placeholder="Number of Trees" list="browsers" />
+<datalist id="browsers">
+  <option value="1 Tree - $5"></option>
+  <option value="5 Tree - $25"></option>
+  <option value="10 Tree - $50"></option>
+</datalist>
+   </div>
+  <button class="btn bg-[#facc15] text-[#15803d] rounded-4xl border-none shadow-none px-25 md:px-30  md:py-2 text-xs">Donate Now</button>
+  </div>
+  </div>
+ </section>
+
+ <!-- footer section -->
+ <footer class="bg-[#14532d] p-5">
+  <p class="text-white text-center text-xs">© 2025 Green Earth. All Rights Reserved.</p>
+ </footer>
     
     <!-- js link -->
 <script src="home.js"></script>
