@@ -1,31 +1,11 @@
+let allPlantsData=[];
 
-//     fetch("https://openapi.programming-hero.com/api/categories")
-//     .then((res) => res.json())
-//     .then( json => displayCategories(json.data));
-//     ;
-// }
+// category section
 
-// const displayCategories =(categories) => { 
-
-// const categoryContainer = document.getElementById("category-container");
-// categoryContainer.innerHTML="";
-
-
-// for (let category of categories) {
-
-//     const btnTree = document.getElementById("div")
-//     btnTree.innerHTML=`
-//     <button  class="btn btn-ghost w-full text-[#1f2937] hover:bg-[#15803d] hover:text-white">All Trees</button>
-//     `
-
-//     categoryContainer.appendChild(btnTree)
-// }
-//  }
-
-// loadCategories();
 fetch ("https://openapi.programming-hero.com/api/categories")
  .then (res=> res.json()
  .then (data => {
+   
     categoryContainer = document.getElementById("category-container")
     categoryContainer.innerHTML="";
 
@@ -33,28 +13,58 @@ fetch ("https://openapi.programming-hero.com/api/categories")
  data.categories.forEach(category => {
     const btnTree = document.createElement("div");
     btnTree.innerHTML=`
-    <button  class="btn btn-ghost w-full text-left text-[#1f2937] hover:bg-[#15803d] hover:text-white ">${category.category_name}</button>
-    `
+    <button id="btn-active-${category.id}" class="btn btn-ghost w-full text-left text-[#1f2937] hover:bg-[#15803d] hover:text-white active-tree">${category.category_name}</button> `
+
+btnTree.onclick =()=>{ filterPlants(category.category_name) 
+
+  const removeActive=()=> {
+    const treeButtons= document.querySelectorAll(".active-tree"); 
+
+    treeButtons.forEach (btn=> btn.classList.remove("active")); 
+
+  }
+   removeActive();
+
+  const buttonGreen = document.getElementById(`btn-active-${category.id}`)
+
+  buttonGreen.classList.add("active");
+};
+
+
     categoryContainer.appendChild(btnTree);
  })
  }));
 
+
 //  all card section
 
 fetch ("https://openapi.programming-hero.com/api/plants")
- .then (res=> res.json()
+ .then (res=> res.json())
  .then (data => {
-    allPlants = document.getElementById("plant-card")
-    allPlants.innerHTML="";
+     
+    allPlantsData=data.plants;
+    
+    const allPlantsStorage=document.getElementById("plant-card");
+    
+    allPlantsStorage.innerHTML="";
 
+    displayPlants(allPlantsData);});
 
- data.plants.forEach(plant => {
+  function displayPlants(plants) {
+  const allPlantsStorage = document.getElementById("plant-card");
+  allPlantsStorage.innerHTML = "";  
+
+    // allPlants = document.getElementById("plant-card")
+    // allPlants.innerHTML="";
+// data
+
+ plants.forEach(plant => {
     const cardTree = document.createElement("div");
     cardTree.innerHTML=`
-    <div id="" class="bg-white space-y-3 w-[310px] h-[px] rounded-xl p-6">
+    <div id="" class="bg-white space-y-3 w-[310px] h-[px] rounded-xl p-6 mb-4 items-center">
         <img class="w-[300px] h-[200px] justify-center rounded-xl" src="${plant.image}" alt="">
         <h2 class="text-[#1f2937] font-bold">${plant.name}</h2>
-        <p class="text-[#1f2937] text-xs    ">${plant.description}</p>
+        <p class="text-[#1f2937] text-xs">${plant.description}</p>
         <div class="flex justify-between">
           <button class="btn btn-xs bg-[#cff0dc] text-[#15803d] rounded-xl">${plant.category}</button>
            <p class="text-[#1f2937]"><span class="text-2xl">৳</span>
@@ -65,9 +75,19 @@ fetch ("https://openapi.programming-hero.com/api/plants")
         </div>
         </div>
     `
-    allPlants.appendChild(cardTree);
+    allPlantsStorage.appendChild(cardTree);
  })
- }));
+ };
+
+ //  category section call
+
+function filterPlants(categoryName){
+    const filteredPlants =allPlantsData.filter(
+        plant=> plant.category===categoryName);
+    displayPlants(filteredPlants);
+
+}
+
 
 
 
