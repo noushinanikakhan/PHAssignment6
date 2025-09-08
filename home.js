@@ -124,10 +124,10 @@ const cartItems = document.getElementById("cart-items")
   cart.forEach (item => {
     total += item.price;
     cartItems.innerHTML += `
-     <button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl bg-[#f0fdf4] w-11/12">
-   <div class="flex justify-between items-start w-full ">
-       <div class="flex  flex-col justify-between">
-         <h5 class="text-sm text-left">${item.name}</h5>
+     <button class="btn btn-sm md:btn-md lg:btn-lg xl:btn-xl bg-[#f0fdf4] w-full md:w-11/12 min-h-12 px-2 py-3">
+   <div class="flex  justify-between items-start w-full ">
+       <div class="flex  flex-col justify-between ">
+         <h5 class="text-xs md:text-sm text-left break-words">${item.name}</h5>
         <p class="text-xs text-left"><span class="text-xl">৳</span> ${item.price}</p>
       </div>
     <i class="fa-solid fa-xmark p-2" onclick="removeItem(${cart.indexOf(item)})"></i>
