@@ -71,7 +71,7 @@ fetch ("https://openapi.programming-hero.com/api/plants")
            ${plant.price}</p>
         </div>
                <div class="">
-            <button class="btn btn-wide bg-[#15803d] text-white rounded-3xl px-20  mx-auto">Add to Cart</button>    
+            <button onclick="addToCart(${plant.id})" class="btn btn-wide bg-[#15803d] text-white rounded-3xl px-20  mx-auto">Add to Cart</button>    
         </div>
         </div>
     `
@@ -104,6 +104,48 @@ fetch ("https://openapi.programming-hero.com/api/plants")
     modal.showModal();
  }
 
+//  add to cart section
+let cart = [];
+
+
+function addToCart(plantId){
+  const plant= allPlantsData.find(p=> p.id===plantId);
+  cart.push(plant)
+  updateCart();
+
+
+}
+ function updateCart () { 
+const cartItems = document.getElementById("cart-items")
+  cartItems.innerHTML= ``;
+
+  let total = 0; 
+
+  cart.forEach (item => {
+    total += item.price;
+    cartItems.innerHTML += `
+     <button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl bg-[#f0fdf4] w-11/12">
+   <div class="flex justify-between items-start w-full ">
+       <div class="flex  flex-col justify-between">
+         <h5 class="text-sm text-left">${item.name}</h5>
+        <p class="text-xs text-left"><span class="text-xl">৳</span> ${item.price}</p>
+      </div>
+    <i class="fa-solid fa-xmark p-2" onclick="removeItem(${cart.indexOf(item)})"></i>
+   </div>
+      </button>`
+  })
+
+  cartItems.innerHTML += `<div class="w-10/12 flex justify-between items-center"> 
+   <div class="text-md font-semibold"> Total: </div>
+  <div> <span class="text-xl">৳</span> ${total} 
+  </div>`
+     }
+     
+  function removeItem (index) {
+    cart.splice(index, 1)
+    updateCart();
+ }
+ 
 
 
  //  category section call
@@ -114,6 +156,8 @@ function filterPlants(categoryName){
     displayPlants(filteredPlants);
 
 }
+
+
 
 
 
