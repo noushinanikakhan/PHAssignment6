@@ -69,23 +69,25 @@ generations.</p>
 <section class="bg-[#f0fdf4]">
   <div>
   <h2 class="text-[#1f2937] font-bold text-xl md:text-2xl text-center p-8">Choose Your Trees</h2>
-  <div class="flex col-span-12 justify-center gap-5">
-    <div class="col-span-2"><h2 class="text-[#1f2937] font-semibold text-sm md:text-2xl text-center p-2">Categories</h2>
-    <p class="text-[#1f2937]">All Trees</p>
-    <p class="text-[#1f2937]">Fruit Trees</p>
-       <p class="text-[#1f2937]">Flowering Trees</p>
-    <p class="text-[#1f2937]">Shade Trees</p>
-       <p class="text-[#1f2937]">Medicinal Trees</p>
-    <p class="text-[#1f2937]">Timber Trees</p>
-       <p class="text-[#1f2937]">Evergreen Trees</p>
-    <p class="text-[#1f2937]">Ornamental Plants</p>
-       <p class="text-[#1f2937]">Bamboo</p>
-       <p class="text-[#1f2937]">Climbers</p>
-       <p class="text-[#1f2937]">Aquatic Plants</p>
+  <div class="flex justify-around gap-5">
+    <div class="col-span-2"><h2 class="text-[#1f2937] font-semibold text-sm md:text-2xl text-left p-2">Categories</h2>
+<div id="category-container">     
+</div>
+
     </div>
-    <div class="col-span-8"></div>
-    <div class="col-span-2 bg-white rounded-md"><h2 class="text-[#1f2937] font-bold text-xl md:text-xs text-left p-2">Your Cart</h2></div>
+
+    <div class="">
+  <div id="plant-card" class="grid grid-cols-3 gap-5 h-max">
   </div>
+   </div>
+
+     <div class=" bg-white rounded-md w-[250px]"><h2 class="text-[#1f2937] font-bold p-5 md:text-xl text-left ">Your Cart</h2></div>
+  </div>   
+    </div>
+
+
+
+
 </div>
 </section>
 
@@ -110,15 +112,15 @@ generations.</p>
     <div class="">
         <h2 class="text-[#1f2937] font-bold text-2xl text-center py-5 md:py-10">Our Impact</h2>
   <div class="flex flex-col md:flex-row mx-auto gap-3 items-center md:justify-around">
-          <div class="bg-white rounded-xl w-9/12 md:w-[450px] p-5  text-center shadow-lg">
+          <div class="bg-white rounded-xl w-9/12 md:w-[450px] p-5  text-center shadow-lg hover:bg-[#cff0dc]">
             <h2 class="text-[#15803d] text-2xl font-semibold ">500K+</h2>
             <p class="text-xs text-[#1f2937] ">Trees Planted</p>
         </div>
-                <div class="bg-white rounded-xl w-9/12 md:w-[450px] p-5 text-center shadow-lg">
+                <div class="bg-white rounded-xl w-9/12 md:w-[450px] p-5 text-center shadow-lg hover:bg-[#cff0dc]">
             <h2 class="text-[#15803d] text-2xl font-semibold ">120+</h2>
             <p class="text-xs text-[#1f2937] ">Communities Involved</p>
         </div>
-                <div class="bg-white rounded-xl w-9/12 md:w-[450px] p-5 text-center shadow-lg">
+                <div class="bg-white rounded-xl w-9/12 md:w-[450px] p-5 text-center shadow-lg hover:bg-[#cff0dc]">
             <h2 class="text-[#15803d] text-2xl font-semibold ">30+</h2>
             <p class="text-xs text-[#1f2937] ">Countries Reached</p>
         </div>
@@ -138,12 +140,14 @@ generations.</p>
       <input type="text" placeholder="Your Email Address" class="input" />
   </div>
    <div class="pb-4">
-      <input type="text" class="input pb-2" placeholder="Number of Trees" list="browsers" />
-<datalist id="browsers">
-  <option value="1 Tree - $5"></option>
-  <option value="5 Tree - $25"></option>
-  <option value="10 Tree - $50"></option>
+    <select class="select w-full text-gray-600">
+<option class="text-gray-600">Number of Trees</option>
+  <option class="text-gray-600">1 Tree - $5</option>
+  <option value="text-gray-600">5 Tree - $25</option>
+  <option value="text-gray-600">10 Tree - $50</option>
 </datalist>
+   </select>
+
    </div>
   <button class="btn bg-[#facc15] text-[#15803d] rounded-4xl border-none shadow-none px-25 md:px-30  md:py-2 text-xs">Donate Now</button>
   </div>
