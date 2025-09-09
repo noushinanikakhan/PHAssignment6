@@ -1,7 +1,18 @@
 let allPlantsData=[];
 
-// category section
+// spinner section
+ const manageSpinner =(status) => {
+  if  (status==true) {
+  document.getElementById("spinner").classList.remove("hidden")
+  document.getElementById("plant-card").classList.add("hidden");
+ }   else {
+  document.getElementById("plant-card").classList.remove("hidden");
+  document.getElementById("spinner").classList.add("hidden");
+ }
+ }
 
+// category section
+ 
 fetch ("https://openapi.programming-hero.com/api/categories")
  .then (res=> res.json()
  .then (data => {
@@ -17,6 +28,8 @@ fetch ("https://openapi.programming-hero.com/api/categories")
 
 btnTree.onclick =()=>{ filterPlants(category.category_name) 
 
+    manageSpinner (true);
+
   const removeActive=()=> {
     const treeButtons= document.querySelectorAll(".active-tree"); 
 
@@ -30,11 +43,9 @@ btnTree.onclick =()=>{ filterPlants(category.category_name)
   buttonGreen.classList.add("active");
 };
 
-
     categoryContainer.appendChild(btnTree);
  })
  }));
-
 
 //  all card section
 
@@ -48,8 +59,11 @@ fetch ("https://openapi.programming-hero.com/api/plants")
     
     allPlantsStorage.innerHTML="";
 
-    displayPlants(allPlantsData);});
+    displayPlants(allPlantsData);
+       
+  });
 
+  
   function displayPlants(plants) {
   const allPlantsStorage = document.getElementById("plant-card");
   allPlantsStorage.innerHTML = "";  
@@ -77,7 +91,7 @@ fetch ("https://openapi.programming-hero.com/api/plants")
     `
     allPlantsStorage.appendChild(cardTree);
  })
- 
+
  };
 
  function plantDetailsModal (plantId){
@@ -112,8 +126,6 @@ function addToCart(plantId){
   const plant= allPlantsData.find(p=> p.id===plantId);
   cart.push(plant)
   updateCart();
-
-
 }
  function updateCart () { 
 const cartItems = document.getElementById("cart-items")
@@ -146,16 +158,20 @@ const cartItems = document.getElementById("cart-items")
     updateCart();
  }
  
-
-
  //  category section call
 
-function filterPlants(categoryName){
-    const filteredPlants =allPlantsData.filter(
-        plant=> plant.category===categoryName);
+function filterPlants(categoryName) {
+  manageSpinner(true); 
+  setTimeout(() => {
+    const filteredPlants = allPlantsData.filter(
+      plant => plant.category === categoryName
+    );
     displayPlants(filteredPlants);
+    manageSpinner(false); 
+  }
+ ); 
+ }
 
-}
 
 
 
